@@ -16,27 +16,28 @@
 
 package com.github.amlcurran.showcaseview;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
+import android.widget.RelativeLayout;
 
 /**
- * Created by curraa01 on 13/10/2013.
+ * A simple interface which makes it easy to keep track of what is in the public
+ * ShowcaseView API
  */
-interface ShowcaseDrawer {
+public interface ShowcaseViewApi {
+    void hide();
 
-    void setShowcaseColour(int color);
+    void show();
 
-    void drawShowcase(Bitmap buffer, float x, float y, float scaleMultiplier);
+    void setContentTitle(CharSequence title);
 
-    int getShowcaseWidth();
+    void setContentText(CharSequence text);
 
-    int getShowcaseHeight();
+    void setButtonPosition(RelativeLayout.LayoutParams layoutParams);
 
-    float getBlockedRadius();
+    void setHideOnTouchOutside(boolean hideOnTouch);
 
-    void setBackgroundColour(int backgroundColor);
+    void setBlocksTouches(boolean blockTouches);
 
-    void erase(Bitmap bitmapBuffer);
+    void setStyle(int theme);
 
-    void drawToCanvas(Canvas canvas, Bitmap bitmapBuffer);
+    boolean isShowing();
 }
